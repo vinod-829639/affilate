@@ -135,6 +135,7 @@ a:hover {
     min-height: 350px;
     display: flex;
     align-items: center;
+    /* padding: 2rem; Let row handle padding */
 }
 
 /* --- Slide Specific Backgrounds --- */
@@ -254,14 +255,17 @@ a:hover {
   box-shadow: var(--card-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  height: 100%; /* Ensure cards in a row take same height */
 }
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
-.card img { object-fit: cover; width: 100%; /* Ensure image covers width */ }
+.card img { object-fit: cover; width: 100%; /* Ensure image covers width */ height: 180px; /* Fixed height example */ }
+.card .card-body { display: flex; flex-direction: column; } /* Needed for flex-grow */
 .card .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--heading-color); }
-.card .card-text { font-size: 0.95rem; line-height: 1.6; }
+.card .card-text { font-size: 0.9rem; line-height: 1.5; } /* Slightly smaller text */
+.card .card-text.flex-grow-1 { flex-grow: 1; } /* Allow text to push button down */
 
 /* Deal Card Specific */
 .card-deal { border-top: 4px solid var(--accent-color); }
@@ -272,6 +276,8 @@ a:hover {
 
 /* Product Card Specific */
 .card-product { border-top: 4px solid var(--primary-color); }
+.card-product .card-text { font-size: 0.95rem; line-height: 1.6; } /* Restore size for product */
+.card-product .mt-auto { margin-top: auto; } /* Ensure buttons align at bottom */
 
 /* Blog Card Specific */
 .blog-card { box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary-color); }
@@ -310,21 +316,93 @@ a:hover {
 .brand-logo a:hover img { filter: grayscale(0%); }
 
 /*--------------------------------------------------------------
-# Footer
+# Footer (Adjusted Spacing)
 --------------------------------------------------------------*/
-.main-footer { background-color: var(--dark-bg); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
-.main-footer h6 { color: var(--white-color); margin-bottom: 1.2rem; font-weight: 700; }
+.main-footer {
+  background-color: var(--dark-bg);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  padding-top: 3rem; /* Reduced */
+  padding-bottom: 2rem; /* Reduced */
+}
+.main-footer h6 {
+  color: var(--white-color);
+  margin-bottom: 0.8rem; /* Reduced */
+  font-weight: 700;
+}
 .main-footer a.text-reset { color: rgba(255, 255, 255, 0.7) !important; text-decoration: none; transition: color 0.3s ease; }
 .main-footer a.text-reset:hover { color: var(--white-color) !important; /* text-decoration: underline; */ }
-.main-footer .footer-disclosure { background-color: rgba(255, 255, 255, 0.1); border: none; color: rgba(255, 255, 255, 0.8); }
+.main-footer .footer-disclosure { background-color: rgba(255, 255, 255, 0.1); border: none; color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem !important; } /* Adjusted margin */
 .main-footer .border-top { border-color: rgba(255, 255, 255, 0.2) !important; }
 
-/* Footer mobile adjustments */
+.main-footer .row.gy-4 {
+   --bs-gutter-y: 1.5rem; /* Reduce vertical gap between rows of columns on mobile */
+}
+ /* Reduce bottom margin for columns overall */
+ .main-footer .row.gy-4 > [class*="col-"] {
+    margin-bottom: 0; /* Reset Bootstrap's default mb */
+    padding-bottom: var(--bs-gutter-y); /* Use gutter for spacing instead */
+}
+ /* Last row of columns shouldn't have bottom padding */
+ .main-footer .row.gy-4 > [class*="col-"]:last-child {
+     padding-bottom: 0;
+ }
+
+/* Copyright section reduced spacing */
+.main-footer .border-top {
+    padding-top: 1.5rem !important; /* Reduced */
+    margin-top: 2rem !important; /* Reduced */
+}
+
+
+/*--------------------------------------------------------------
+# Mobile Horizontal Scrolling for Deal Sections (NEW)
+--------------------------------------------------------------*/
 @media (max-width: 767.98px) {
-  .main-footer .text-md-start { text-align: center !important; }
-  .main-footer .mx-auto { margin-left: auto !important; margin-right: auto !important; }
-   .main-footer .gy-4 > * { padding-top: 1rem; padding-bottom: 1rem; }
-    .main-footer h6 { margin-bottom: 0.8rem; }
+  .horizontal-scroll-mobile {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 15px; /* Space for scrollbar */
+    margin-left: -1rem; /* Counteract container padding */
+    margin-right: -1rem; /* Counteract container padding */
+    padding-left: 1rem; /* Restore padding inside */
+    padding-right: 1rem; /* Restore padding inside */
+  }
+  .horizontal-scroll-mobile::-webkit-scrollbar {
+     height: 5px; /* Adjust scrollbar thickness */
+  }
+  .horizontal-scroll-mobile::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+  }
+  .horizontal-scroll-mobile .row {
+    flex-wrap: nowrap !important; /* Override Bootstrap wrap */
+    margin-left: 0; /* Reset negative row margin */
+    margin-right: 0; /* Reset negative row margin */
+  }
+  .horizontal-scroll-mobile .col {
+    /* Make columns inline-block for horizontal layout */
+    display: inline-block;
+    width: 75%; /* Adjust width: how much of screen one card takes */
+    max-width: 280px; /* Max width for a single card */
+    vertical-align: top; /* Align cards to the top */
+    white-space: normal; /* Allow text inside card to wrap */
+    float: none !important; /* Override Bootstrap floats */
+    margin-right: 1rem; /* Spacing between cards */
+    /* Overriding Bootstrap column padding (g-4 = 1.5rem) */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .horizontal-scroll-mobile .col:last-child {
+    margin-right: 0; /* No margin for the last card */
+  }
+  .horizontal-scroll-mobile .card {
+      height: auto; /* Let height be determined by content on mobile scroll */
+  }
+   .horizontal-scroll-mobile .card img {
+      height: 150px; /* Adjust image height for mobile scroll */
+   }
 }
 
 
@@ -332,40 +410,44 @@ a:hover {
 # Responsive Adjustments
 --------------------------------------------------------------*/
 @media (max-width: 991.98px) { /* Below Large */
-    .deal-banner-carousel .deal-slide-content {
-        /* Already adjusted in mobile, this is for tablet */
-    }
-     .deal-banner-carousel .retailer-logo {
-        /* Already centered below */
-    }
+    /* Styles for tablets if needed, currently handled by Bootstrap */
 }
 
 @media (max-width: 767.98px) { /* Below Medium */
     .section-padding { padding: 40px 0; }
     .section-title { font-size: 1.8rem; margin-bottom: 30px; }
     .brand-logo img { max-height: 45px; }
-    body { padding-top: 68px; }
+    body { padding-top: 68px; } /* Adjust if navbar height changes */
     .main-nav #search-form .form-control-sm { max-width: 150px; }
 
     /* Carousel Mobile Adjustments */
      .deal-banner-carousel .deal-slide-content {
         min-height: 280px;
         text-align: center;
+        /* padding: 1.5rem; Let row handle padding */
     }
-    .deal-banner-carousel .row > div {
+     .deal-banner-carousel .row > [class*="col-"] { /* Target columns directly */
         text-align: center !important;
+        width: 100%; /* Ensure takes full width when stacked */
     }
      .deal-banner-carousel .retailer-logo {
         margin-left: auto;
         margin-right: auto;
     }
-    .deal-banner-carousel h2 { font-size: 2rem; }
+    .deal-banner-carousel h2 { font-size: 1.8rem; } /* Reduced further */
     .deal-banner-carousel .lead { font-size: 1rem; }
+    .deal-banner-carousel .sale-graphic { max-height: 150px; }
+
+    /* Footer Mobile Adjustments (Already handled above) */
+    .main-footer .text-md-start { text-align: center !important; }
+    .main-footer .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
 }
 
 @media (max-width: 576px) { /* Below Small */
    .card-product .d-flex.justify-content-between { flex-direction: column; align-items: stretch !important; gap: 0.5rem; }
    .card-product .btn { width: 100%; }
-   .deal-banner-carousel h2 { font-size: 1.8rem; } /* Further reduce heading size */
+   .deal-banner-carousel h2 { font-size: 1.6rem; } /* Even smaller heading */
    .deal-banner-carousel { margin-bottom: 30px; }
+   .deal-banner-carousel .btn { padding: 0.5rem 1.2rem; font-size: 0.9rem;} /* Slightly smaller button */
 }
