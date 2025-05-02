@@ -1,0 +1,371 @@
+/*--------------------------------------------------------------
+# Variables & General Styles
+--------------------------------------------------------------*/
+:root {
+  --primary-color: #0d6efd; /* Bootstrap Blue - Or change to your brand color */
+  --secondary-color: #6c757d; /* Bootstrap Gray */
+  --accent-color: #fd7e14; /* Bootstrap Orange - For deals/highlights */
+  --light-bg: #f8f9fa;
+  --dark-bg: #212529;
+  --text-color: #495057;
+  --heading-color: #343a40;
+  --white-color: #ffffff;
+  --border-color: #dee2e6;
+  --pink-color: #e83e8c; /* Example for Myntra */
+  --heading-font: 'Poppins', sans-serif;
+  --body-font: 'Source Sans 3', sans-serif;
+  --card-border-radius: 0.5rem; /* Softer corners */
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Softer shadow */
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  background-color: var(--white-color);
+  padding-top: 75px; /* Adjust based on final navbar height */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrollbar often caused by AOS */
+}
+
+main.main-content {
+  flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  /* color: darken(var(--primary-color), 10%); */ /* Optional: Darken link color */
+  text-decoration: none; /* Remove underline globally on hover if desired */
+}
+
+/*--------------------------------------------------------------
+# Sections & Layout
+--------------------------------------------------------------*/
+.section-padding {
+  padding: 60px 0;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  position: relative;
+  color: var(--heading-color);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg-light {
+    background-color: var(--light-bg) !important;
+}
+
+/*--------------------------------------------------------------
+# Navigation Bar
+--------------------------------------------------------------*/
+.main-nav {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  transition: all 0.3s ease;
+}
+.main-nav .navbar-brand {
+    font-size: 1.5rem;
+    color: var(--heading-color);
+}
+.main-nav .nav-link {
+  color: var(--secondary-color);
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+  color: var(--primary-color);
+}
+.main-nav #search-form .form-control-sm {
+    max-width: 200px;
+}
+.main-nav #search-form .btn-sm {
+    padding: 0.25rem 0.6rem;
+}
+
+/*--------------------------------------------------------------
+# Top Deals Carousel Section
+--------------------------------------------------------------*/
+#top-deals {
+    padding-bottom: 0; /* Removed bottom padding as carousel has margin */
+}
+
+.deal-banner-carousel {
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    margin-bottom: 40px;
+    /* Optional: Set a max-width if you uncommented the wrapper div in HTML */
+    /* max-width: 960px; margin-left: auto; margin-right: auto; */
+}
+
+.deal-banner-carousel .carousel-inner {
+    border-radius: inherit;
+}
+
+.deal-banner-carousel .deal-slide-content {
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Slide Specific Backgrounds --- */
+.deal-slide-content.amazon-gradient {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffe4a1 100%);
+}
+.deal-slide-content.flipkart-gradient {
+    background: linear-gradient(135deg, #cce5ff 0%, #a1c4ff 100%);
+}
+.deal-slide-content.myntra-gradient {
+     background: linear-gradient(135deg, #fbcbe1 0%, #f7a8c8 100%);
+}
+/* Add more gradient classes for other retailers if needed */
+
+
+/* --- Content styling within slides --- */
+.deal-banner-carousel .retailer-logo {
+    max-height: 35px;
+    width: auto;
+}
+
+.deal-banner-carousel h2 {
+    color: #212529;
+}
+
+.deal-banner-carousel .lead {
+    font-size: 1.1rem;
+}
+
+.deal-banner-carousel .sale-graphic {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+.deal-banner-carousel .powered-by {
+    font-size: 0.75rem;
+}
+
+/* --- Carousel Controls/Indicators Styling --- */
+.deal-banner-carousel .carousel-control-prev,
+.deal-banner-carousel .carousel-control-next {
+    width: 5%;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+.deal-banner-carousel .carousel-control-prev:hover,
+.deal-banner-carousel .carousel-control-next:hover {
+     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.deal-banner-carousel .carousel-control-prev-icon,
+.deal-banner-carousel .carousel-control-next-icon {
+  background-size: 60%, 60%;
+   filter: invert(1) grayscale(100); /* White icons */
+}
+
+.deal-banner-carousel .carousel-indicators button {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  height: 3px;
+  width: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  opacity: 0.7;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+.deal-banner-carousel .carousel-indicators button.active {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+
+
+/*--------------------------------------------------------------
+# Top Categories Section
+--------------------------------------------------------------*/
+.card-category {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+.card-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.card-category .icon-wrap {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem auto;
+    background-color: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+.card-category:hover .icon-wrap {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.card-category .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+/*--------------------------------------------------------------
+# Card Styles (General & Specific)
+--------------------------------------------------------------*/
+.card {
+  border: none;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.card img { object-fit: cover; width: 100%; /* Ensure image covers width */ }
+.card .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--heading-color); }
+.card .card-text { font-size: 0.95rem; line-height: 1.6; }
+
+/* Deal Card Specific */
+.card-deal { border-top: 4px solid var(--accent-color); }
+.card-deal .badge { font-size: 0.7rem; font-weight: bold; padding: 0.4em 0.7em; }
+.card-deal.border-pink { border-top-color: var(--pink-color); }
+.card-deal.border-success { border-top-color: #198754; }
+.bg-pink { background-color: var(--pink-color) !important; color: var(--white-color); }
+
+/* Product Card Specific */
+.card-product { border-top: 4px solid var(--primary-color); }
+
+/* Blog Card Specific */
+.blog-card { box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 3px solid var(--primary-color); }
+.blog-card .card-title { font-size: 1.2rem; }
+.blog-card .btn-link { text-decoration: none; font-weight: 600; }
+.blog-card .btn-link:hover { text-decoration: underline; }
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+.btn { border-radius: 50px; padding: 0.6rem 1.5rem; font-weight: 600; transition: all 0.3s ease; border: none; }
+.btn-sm { padding: 0.4rem 1rem; font-size: 0.8rem; }
+
+.btn-primary-custom { background-color: var(--primary-color); color: var(--white-color); }
+.btn-primary-custom:hover { background-color: darken(var(--primary-color), 10%); color: var(--white-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+
+.btn-accent { background-color: var(--accent-color); color: var(--white-color); }
+.btn-accent:hover { background-color: darken(var(--accent-color), 10%); color: var(--white-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+
+.btn-outline-primary { border: 2px solid var(--primary-color); color: var(--primary-color); background-color: transparent; }
+.btn-outline-primary:hover { background-color: var(--primary-color); color: var(--white-color); }
+
+.btn-pink { background-color: var(--pink-color); color: var(--white-color); }
+.btn-pink:hover { background-color: darken(var(--pink-color), 10%); color: var(--white-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+
+.btn-success { /* Inherits Bootstrap styles, add custom hover below */ }
+.btn-success:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+
+
+/*--------------------------------------------------------------
+# Top Brands Section
+--------------------------------------------------------------*/
+.brand-logo a { display: block; padding: 1rem; background-color: var(--white-color); border-radius: var(--card-border-radius); box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0.8; }
+.brand-logo img { max-width: 100%; max-height: 55px; object-fit: contain; filter: grayscale(50%); transition: filter 0.3s ease; }
+.brand-logo a:hover { transform: scale(1.08); box-shadow: 0 6px 15px rgba(0,0,0,0.1); opacity: 1; }
+.brand-logo a:hover img { filter: grayscale(0%); }
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.main-footer { background-color: var(--dark-bg); color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
+.main-footer h6 { color: var(--white-color); margin-bottom: 1.2rem; font-weight: 700; }
+.main-footer a.text-reset { color: rgba(255, 255, 255, 0.7) !important; text-decoration: none; transition: color 0.3s ease; }
+.main-footer a.text-reset:hover { color: var(--white-color) !important; /* text-decoration: underline; */ }
+.main-footer .footer-disclosure { background-color: rgba(255, 255, 255, 0.1); border: none; color: rgba(255, 255, 255, 0.8); }
+.main-footer .border-top { border-color: rgba(255, 255, 255, 0.2) !important; }
+
+/* Footer mobile adjustments */
+@media (max-width: 767.98px) {
+  .main-footer .text-md-start { text-align: center !important; }
+  .main-footer .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+   .main-footer .gy-4 > * { padding-top: 1rem; padding-bottom: 1rem; }
+    .main-footer h6 { margin-bottom: 0.8rem; }
+}
+
+
+/*--------------------------------------------------------------
+# Responsive Adjustments
+--------------------------------------------------------------*/
+@media (max-width: 991.98px) { /* Below Large */
+    .deal-banner-carousel .deal-slide-content {
+        /* Already adjusted in mobile, this is for tablet */
+    }
+     .deal-banner-carousel .retailer-logo {
+        /* Already centered below */
+    }
+}
+
+@media (max-width: 767.98px) { /* Below Medium */
+    .section-padding { padding: 40px 0; }
+    .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+    .brand-logo img { max-height: 45px; }
+    body { padding-top: 68px; }
+    .main-nav #search-form .form-control-sm { max-width: 150px; }
+
+    /* Carousel Mobile Adjustments */
+     .deal-banner-carousel .deal-slide-content {
+        min-height: 280px;
+        text-align: center;
+    }
+    .deal-banner-carousel .row > div {
+        text-align: center !important;
+    }
+     .deal-banner-carousel .retailer-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .deal-banner-carousel h2 { font-size: 2rem; }
+    .deal-banner-carousel .lead { font-size: 1rem; }
+}
+
+@media (max-width: 576px) { /* Below Small */
+   .card-product .d-flex.justify-content-between { flex-direction: column; align-items: stretch !important; gap: 0.5rem; }
+   .card-product .btn { width: 100%; }
+   .deal-banner-carousel h2 { font-size: 1.8rem; } /* Further reduce heading size */
+   .deal-banner-carousel { margin-bottom: 30px; }
+}
