@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Affiliate Hub - Deals, Categories, Brands & More</title>
+    <meta name="description" content="Find top deals from Amazon, Flipkart, Myntra, Ajio & more. Explore categories and curated products.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS (Link AFTER Bootstrap and AOS) -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm main-nav">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">YourLogo</a> <!-- REPLACE YourLogo -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#top-deals">Deals</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#top-categories">Categories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#top-products">Products</a></li>
+                        <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="storeDealsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             Store Deals
+                           </a>
+                           <ul class="dropdown-menu" aria-labelledby="storeDealsDropdown">
+                             <li><a class="dropdown-item" href="#amazon-deals">Amazon</a></li>
+                             <li><a class="dropdown-item" href="#flipkart-deals">Flipkart</a></li>
+                             <li><a class="dropdown-item" href="#myntra-deals">Myntra</a></li>
+                             <li><a class="dropdown-item" href="#ajio-deals">Ajio</a></li>
+                           </ul>
+                         </li>
+                        <li class="nav-item"><a class="nav-link" href="#top-brands">Brands</a></li>
+                         <li class="nav-item"><a class="nav-link" href="#blog-preview">Blog</a></li>
+                    </ul>
+                    <!-- Search Form -->
+                    <form class="d-flex" id="search-form" role="search">
+                        <input class="form-control form-control-sm me-2" type="search" id="search-input" placeholder="Search products or deals..." aria-label="Search">
+                        <button class="btn btn-outline-primary btn-sm" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- Top Deals Section (Carousel Banner) -->
+        <section id="top-deals" class="section-padding pb-0">
+            <div class="container">
+                 <!-- Optional Wrapper for smaller width: <div style="max-width: 960px; margin: auto;"> -->
+                    <div id="heroDealCarousel" class="carousel slide deal-banner-carousel shadow-lg" data-bs-ride="carousel" data-aos="fade-up">
+
+                        <!-- Indicators -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#heroDealCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#heroDealCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#heroDealCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <!-- Add more indicators if you have more slides -->
+                        </div>
+
+                        <!-- Slides -->
+                        <div class="carousel-inner">
+
+                            <!-- Slide 1: Amazon Example -->
+                            <div class="carousel-item active" data-bs-interval="5000">
+                                <div class="deal-slide-content amazon-gradient">
+                                    <div class="row align-items-center g-3 p-4 p-md-5">
+                                        <div class="col-md-6 text-center text-md-start">
+                                            <img src="https://via.placeholder.com/150x30/000000/FFFFFF/?text=amazon.in" alt="Amazon Logo" class="img-fluid mb-3 retailer-logo"> <!-- REPLACE Image -->
+                                            <h2 class="display-5 fw-bold text-dark mb-2">Up to 80% Off</h2> <!-- REPLACE Text -->
+                                            <p class="lead text-secondary mb-3">Great Summer Sale</p> <!-- REPLACE Text -->
+                                            <a href="YOUR_AMAZON_SALE_LINK" target="_blank" rel="sponsored nofollow" class="btn btn-accent fw-bold">Shop Amazon Deals <i class="fas fa-arrow-right ms-1"></i></a> <!-- REPLACE Link -->
+                                        </div>
+                                        <div class="col-md-6 text-center d-none d-md-block">
+                                            <img src="https://via.placeholder.com/350x220/FFA500/FFFFFF/?text=Summer+Sale+Graphic" alt="Summer Sale" class="img-fluid sale-graphic"> <!-- REPLACE Image -->
+                                            <p class="small text-muted powered-by mt-2">Powered by Samsung Galaxy AI</p> <!-- REPLACE Text -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Flipkart Example -->
+                            <div class="carousel-item" data-bs-interval="5000">
+                                <div class="deal-slide-content flipkart-gradient">
+                                     <div class="row align-items-center g-3 p-4 p-md-5">
+                                        <div class="col-md-6 text-center text-md-start">
+                                             <img src="https://via.placeholder.com/150x30/007bff/FFFFFF/?text=Flipkart" alt="Flipkart Logo" class="img-fluid mb-3 retailer-logo"> <!-- REPLACE Image -->
+                                            <h2 class="display-5 fw-bold text-dark mb-2">Big Billion Days!</h2> <!-- REPLACE Text -->
+                                            <p class="lead text-secondary mb-3">Unbeatable Offers Live</p> <!-- REPLACE Text -->
+                                            <a href="YOUR_FLIPKART_SALE_LINK" target="_blank" rel="sponsored nofollow" class="btn btn-primary-custom fw-bold">Shop Flipkart Deals <i class="fas fa-arrow-right ms-1"></i></a> <!-- REPLACE Link -->
+                                        </div>
+                                        <div class="col-md-6 text-center d-none d-md-block">
+                                            <img src="https://via.placeholder.com/350x220/007bff/FFFFFF/?text=BBD+Graphic" alt="Big Billion Days" class="img-fluid sale-graphic"> <!-- REPLACE Image -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- Slide 3: Myntra Example -->
+                            <div class="carousel-item" data-bs-interval="5000">
+                                <div class="deal-slide-content myntra-gradient">
+                                     <div class="row align-items-center g-3 p-4 p-md-5">
+                                        <div class="col-md-6 text-center text-md-start">
+                                             <img src="https://via.placeholder.com/150x30/E83E8C/FFFFFF/?text=Myntra" alt="Myntra Logo" class="img-fluid mb-3 retailer-logo"> <!-- REPLACE Image -->
+                                            <h2 class="display-5 fw-bold text-dark mb-2">End Of Reason Sale</h2> <!-- REPLACE Text -->
+                                            <p class="lead text-secondary mb-3">Top Fashion Brands</p> <!-- REPLACE Text -->
+                                            <a href="YOUR_MYNTRA_SALE_LINK" target="_blank" rel="sponsored nofollow" class="btn btn-pink fw-bold">Shop Myntra Deals <i class="fas fa-arrow-right ms-1"></i></a> <!-- REPLACE Link -->
+                                        </div>
+                                        <div class="col-md-6 text-center d-none d-md-block">
+                                             <img src="https://via.placeholder.com/350x220/E83E8C/FFFFFF/?text=EORS+Graphic" alt="End Of Reason Sale" class="img-fluid sale-graphic"> <!-- REPLACE Image -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- Add more .carousel-item divs for other deals here -->
+                        </div>
+
+                        <!-- Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#heroDealCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#heroDealCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                 <!-- Optional Wrapper End: </div> -->
+            </div>
+        </section>
+
+        <!-- Top Categories Section -->
+        <section id="top-categories" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Shop By Category</h2>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
+                    <!-- Category Card 1 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <a href="/category-electronics.html" class="card text-center card-category h-100"> <!-- REPLACE Link -->
+                            <div class="card-body">
+                                <div class="icon-wrap mb-3"><i class="fas fa-laptop fa-2x"></i></div>
+                                <h5 class="card-title">Electronics</h5> <!-- REPLACE Text -->
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Category Card 2 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="150">
+                         <a href="/category-fashion.html" class="card text-center card-category h-100"> <!-- REPLACE Link -->
+                            <div class="card-body">
+                                <div class="icon-wrap mb-3"><i class="fas fa-tshirt fa-2x"></i></div>
+                                <h5 class="card-title">Fashion</h5> <!-- REPLACE Text -->
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Category Card 3 -->
+                     <div class="col" data-aos="fade-up" data-aos-delay="200">
+                         <a href="/category-home.html" class="card text-center card-category h-100"> <!-- REPLACE Link -->
+                            <div class="card-body">
+                                <div class="icon-wrap mb-3"><i class="fas fa-couch fa-2x"></i></div>
+                                <h5 class="card-title">Home & Kitchen</h5> <!-- REPLACE Text -->
+                            </div>
+                        </a>
+                    </div>
+                     <!-- Category Card 4 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="250">
+                         <a href="/category-beauty.html" class="card text-center card-category h-100"> <!-- REPLACE Link -->
+                            <div class="card-body">
+                                <div class="icon-wrap mb-3"><i class="fas fa-spa fa-2x"></i></div>
+                                <h5 class="card-title">Beauty</h5> <!-- REPLACE Text -->
+                            </div>
+                        </a>
+                    </div>
+                     <!-- Category Card 5 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="300">
+                         <a href="/category-mobiles.html" class="card text-center card-category h-100"> <!-- REPLACE Link -->
+                            <div class="card-body">
+                                <div class="icon-wrap mb-3"><i class="fas fa-mobile-alt fa-2x"></i></div>
+                                <h5 class="card-title">Mobiles</h5> <!-- REPLACE Text -->
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Add more category cards if needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Amazon Top Deals Section -->
+        <section id="amazon-deals" class="section-padding">
+            <div class="container">
+                 <h2 class="section-title text-center" data-aos="fade-up">Amazon Top Deals</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Amazon Deal Card 1 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm card-deal">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2">Amazon Deal!</span>
+                            <img src="https://via.placeholder.com/300x200.png?text=Amazon+Deal+1" class="card-img-top" alt="Amazon Deal 1"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Amazon Product Name 1</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Description of the Amazon deal.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                    <span class="text-danger fs-4 fw-bold">$XX.XX</span> <!-- REPLACE Price -->
+                                    <span class="text-muted text-decoration-line-through small ms-2">$YY.YY</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_AMAZON_AFFILIATE_LINK_1" target="_blank" rel="sponsored nofollow" class="btn btn-accent btn-sm mt-auto w-100 fw-bold">View on Amazon <i class="fab fa-amazon ms-1"></i></a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Amazon Deal Card 2 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 shadow-sm card-deal">
+                            <img src="https://via.placeholder.com/300x200.png?text=Amazon+Deal+2" class="card-img-top" alt="Amazon Deal 2"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Amazon Product Name 2</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Another great deal on Amazon.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                     <span class="text-danger fs-4 fw-bold">$XX.XX</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_AMAZON_AFFILIATE_LINK_2" target="_blank" rel="sponsored nofollow" class="btn btn-accent btn-sm mt-auto w-100 fw-bold">View on Amazon <i class="fab fa-amazon ms-1"></i></a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Amazon Deal Card 3 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="300">
+                        <!-- Add Content Here -->
+                         <div class="card h-100 shadow-sm card-deal">
+                            <img src="https://via.placeholder.com/300x200.png?text=Amazon+Deal+3" class="card-img-top" alt="Amazon Deal 3"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Amazon Product Name 3</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Deal description.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                     <span class="text-danger fs-4 fw-bold">$XX.XX</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_AMAZON_AFFILIATE_LINK_3" target="_blank" rel="sponsored nofollow" class="btn btn-accent btn-sm mt-auto w-100 fw-bold">View on Amazon <i class="fab fa-amazon ms-1"></i></a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Amazon Deal Card 4 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="400">
+                        <!-- Add Content Here -->
+                         <div class="card h-100 shadow-sm card-deal">
+                            <img src="https://via.placeholder.com/300x200.png?text=Amazon+Deal+4" class="card-img-top" alt="Amazon Deal 4"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Amazon Product Name 4</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Deal description.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                     <span class="text-danger fs-4 fw-bold">$XX.XX</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_AMAZON_AFFILIATE_LINK_4" target="_blank" rel="sponsored nofollow" class="btn btn-accent btn-sm mt-auto w-100 fw-bold">View on Amazon <i class="fab fa-amazon ms-1"></i></a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flipkart Top Deals Section -->
+        <section id="flipkart-deals" class="section-padding bg-light">
+            <div class="container">
+                 <h2 class="section-title text-center" data-aos="fade-up">Flipkart Top Deals</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                     <!-- Flipkart Deal Card 1 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm card-deal">
+                             <span class="badge bg-primary position-absolute top-0 start-0 m-2">Flipkart BBD!</span>
+                            <img src="https://via.placeholder.com/300x200.png?text=Flipkart+Deal+1" class="card-img-top" alt="Flipkart Deal 1"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Flipkart Item Name 1</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Description of the Flipkart offer.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                    <span class="text-danger fs-4 fw-bold">₹X,XXX</span> <!-- REPLACE Price -->
+                                    <span class="text-muted text-decoration-line-through small ms-2">₹Y,YYY</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_FLIPKART_AFFILIATE_LINK_1" target="_blank" rel="sponsored nofollow" class="btn btn-primary-custom btn-sm mt-auto w-100 fw-bold">View on Flipkart</a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more Flipkart deal cards (2, 3, 4) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Myntra Top Deals Section -->
+        <section id="myntra-deals" class="section-padding">
+            <div class="container">
+                 <h2 class="section-title text-center" data-aos="fade-up">Myntra Top Deals</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                     <!-- Myntra Deal Card 1 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm card-deal border-pink">
+                             <span class="badge bg-pink position-absolute top-0 start-0 m-2">Fashion Sale!</span>
+                            <img src="https://via.placeholder.com/300x200.png?text=Myntra+Deal+1" class="card-img-top" alt="Myntra Deal 1"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Stylish Item Name 1</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Fashion deal description from Myntra.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                    <span class="text-danger fs-4 fw-bold">₹XXX</span> <span class="small text-success ms-1">(60% OFF)</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_MYNTRA_AFFILIATE_LINK_1" target="_blank" rel="sponsored nofollow" class="btn btn-pink btn-sm mt-auto w-100 fw-bold">View on Myntra</a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more Myntra deal cards (2, 3, 4) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Ajio Top Deals Section -->
+         <section id="ajio-deals" class="section-padding bg-light">
+            <div class="container">
+                 <h2 class="section-title text-center" data-aos="fade-up">Ajio Top Deals</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                      <!-- Ajio Deal Card 1 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm card-deal border-success">
+                            <img src="https://via.placeholder.com/300x200.png?text=Ajio+Deal+1" class="card-img-top" alt="Ajio Deal 1"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Trendy Outfit Piece 1</h5> <!-- REPLACE Text -->
+                                <p class="card-text small flex-grow-1">Latest fashion trends available on Ajio.</p> <!-- REPLACE Text -->
+                                <div class="price my-2 text-center">
+                                    <span class="text-danger fs-4 fw-bold">₹X,XXX</span> <!-- REPLACE Price -->
+                                </div>
+                                <a href="YOUR_AJIO_AFFILIATE_LINK_1" target="_blank" rel="sponsored nofollow" class="btn btn-success btn-sm mt-auto w-100 fw-bold">View on Ajio</a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more Ajio deal cards (2, 3, 4) -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Top Products Section -->
+        <section id="top-products" class="section-padding">
+             <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Our Top Product Picks</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                     <!-- Product Card 1 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm card-product">
+                            <img src="https://via.placeholder.com/300x200.png?text=Product+1" class="card-img-top" alt="Product Name 1"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Awesome Product Name 1</h5> <!-- REPLACE Text -->
+                                <p class="card-text flex-grow-1">Compelling description focusing on benefits and unique selling points.</p> <!-- REPLACE Text -->
+                                <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+                                    <a href="product-review-1.html" class="btn btn-outline-primary btn-sm">Read Review <i class="fas fa-arrow-right ms-1"></i></a> <!-- REPLACE Link -->
+                                    <a href="YOUR_AFFILIATE_LINK_HERE_1" target="_blank" rel="sponsored nofollow" class="btn btn-primary-custom btn-sm fw-bold">Check Price <i class="fas fa-dollar-sign ms-1"></i></a> <!-- REPLACE Link -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                     <div class="col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 shadow-sm card-product">
+                            <img src="https://via.placeholder.com/300x200.png?text=Product+2" class="card-img-top" alt="Product Name 2"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Fantastic Gadget 2</h5> <!-- REPLACE Text -->
+                                <p class="card-text flex-grow-1">Why this gadget stands out. Explain its key features clearly.</p> <!-- REPLACE Text -->
+                                <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+                                     <a href="product-review-2.html" class="btn btn-outline-primary btn-sm">Read Review <i class="fas fa-arrow-right ms-1"></i></a> <!-- REPLACE Link -->
+                                    <a href="YOUR_AFFILIATE_LINK_HERE_2" target="_blank" rel="sponsored nofollow" class="btn btn-primary-custom btn-sm fw-bold">Check Price <i class="fas fa-dollar-sign ms-1"></i></a> <!-- REPLACE Link -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Product Card 3 -->
+                    <div class="col" data-aos="fade-up" data-aos-delay="300">
+                         <div class="card h-100 shadow-sm card-product">
+                            <img src="https://via.placeholder.com/300x200.png?text=Product+3" class="card-img-top" alt="Product Name 3"> <!-- REPLACE Image -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Must-Have Item 3</h5> <!-- REPLACE Text -->
+                                <p class="card-text flex-grow-1">Explaining the essential nature and value proposition of this item.</p> <!-- REPLACE Text -->
+                                <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+                                     <a href="product-review-3.html" class="btn btn-outline-primary btn-sm">Read Review <i class="fas fa-arrow-right ms-1"></i></a> <!-- REPLACE Link -->
+                                    <a href="YOUR_AFFILIATE_LINK_HERE_3" target="_blank" rel="sponsored nofollow" class="btn btn-primary-custom btn-sm fw-bold">Check Price <i class="fas fa-dollar-sign ms-1"></i></a> <!-- REPLACE Link -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more product cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Brands Section -->
+        <section id="top-brands" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Shop Trusted Brands</h2>
+                <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-4 justify-content-center align-items-center text-center" data-aos="zoom-in">
+                    <!-- Brand Logo 1 -->
+                    <div class="col brand-logo" data-aos="zoom-in" data-aos-delay="50">
+                        <a href="YOUR_BRAND_AFFILIATE_LINK_OR_PAGE_1" target="_blank" rel="sponsored nofollow" title="Shop Brand 1"> <!-- REPLACE Link & Title -->
+                            <img src="https://via.placeholder.com/150x80.png?text=Brand+1" alt="Brand 1 Logo" class="img-fluid"> <!-- REPLACE Image & Alt -->
+                        </a>
+                    </div>
+                    <!-- Brand Logo 2 -->
+                    <div class="col brand-logo" data-aos="zoom-in" data-aos-delay="100">
+                         <a href="YOUR_BRAND_AFFILIATE_LINK_OR_PAGE_2" target="_blank" rel="sponsored nofollow" title="Shop Brand 2"> <!-- REPLACE Link & Title -->
+                            <img src="https://via.placeholder.com/150x80.png?text=Brand+2" alt="Brand 2 Logo" class="img-fluid"> <!-- REPLACE Image & Alt -->
+                        </a>
+                    </div>
+                    <!-- Brand Logo 3 -->
+                    <div class="col brand-logo" data-aos="zoom-in" data-aos-delay="150">
+                         <a href="YOUR_BRAND_AFFILIATE_LINK_OR_PAGE_3" target="_blank" rel="sponsored nofollow" title="Shop Brand 3"> <!-- REPLACE Link & Title -->
+                            <img src="https://via.placeholder.com/150x80.png?text=Brand+3" alt="Brand 3 Logo" class="img-fluid"> <!-- REPLACE Image & Alt -->
+                        </a>
+                    </div>
+                    <!-- Brand Logo 4 -->
+                   <div class="col brand-logo" data-aos="zoom-in" data-aos-delay="200">
+                         <a href="YOUR_BRAND_AFFILIATE_LINK_OR_PAGE_4" target="_blank" rel="sponsored nofollow" title="Shop Brand 4"> <!-- REPLACE Link & Title -->
+                            <img src="https://via.placeholder.com/150x80.png?text=Brand+4" alt="Brand 4 Logo" class="img-fluid"> <!-- REPLACE Image & Alt -->
+                        </a>
+                    </div>
+                    <!-- Brand Logo 5 -->
+                    <div class="col brand-logo" data-aos="zoom-in" data-aos-delay="250">
+                        <a href="YOUR_BRAND_AFFILIATE_LINK_OR_PAGE_5" target="_blank" rel="sponsored nofollow" title="Shop Brand 5"> <!-- REPLACE Link & Title -->
+                            <img src="https://via.placeholder.com/150x80.png?text=Brand+5" alt="Brand 5 Logo" class="img-fluid"> <!-- REPLACE Image & Alt -->
+                        </a>
+                    </div>
+                     <!-- Brand Logo 6 -->
+                    <div class="col brand-logo" data-aos="zoom-in" data-aos-delay="300">
+                         <a href="YOUR_BRAND_AFFILIATE_LINK_OR_PAGE_6" target="_blank" rel="sponsored nofollow" title="Shop Brand 6"> <!-- REPLACE Link & Title -->
+                            <img src="https://via.placeholder.com/150x80.png?text=Brand+6" alt="Brand 6 Logo" class="img-fluid"> <!-- REPLACE Image & Alt -->
+                        </a>
+                    </div>
+                    <!-- Add more brand logos if needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Preview Section -->
+        <section id="blog-preview" class="section-padding section-blog">
+             <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">From Our Blog</h2>
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <!-- Blog Post Snippet 1 -->
+                    <div class="col" data-aos="fade-right" data-aos-delay="100">
+                        <div class="card blog-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Buying Guide: Choosing the Best [Product Type]</h5> <!-- REPLACE Text -->
+                                <p class="card-text small text-muted mb-2">Published on: Jan 15, 2024</p> <!-- REPLACE Date -->
+                                <p class="card-text">A short, engaging excerpt from your latest buying guide helping readers make informed decisions...</p> <!-- REPLACE Text -->
+                                <a href="blog-post-1.html" class="btn btn-link p-0">Read More <i class="fas fa-long-arrow-alt-right ms-1"></i></a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Post Snippet 2 -->
+                     <div class="col" data-aos="fade-left" data-aos-delay="200">
+                        <div class="card blog-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Top 5 Mistakes to Avoid When Buying [Product Category]</h5> <!-- REPLACE Text -->
+                                <p class="card-text small text-muted mb-2">Published on: Jan 10, 2024</p> <!-- REPLACE Date -->
+                                <p class="card-text">Learn about common pitfalls and how to avoid them to ensure you get the best value for your money...</p> <!-- REPLACE Text -->
+                                <a href="blog-post-2.html" class="btn btn-link p-0">Read More <i class="fas fa-long-arrow-alt-right ms-1"></i></a> <!-- REPLACE Link -->
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Add more blog snippets if needed -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer bg-dark text-white mt-auto pt-5 pb-4">
+         <div class="container text-center text-md-start">
+             <!-- Affiliate Disclosure -->
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="alert alert-secondary small footer-disclosure" role="alert">
+                        <strong>Affiliate Disclosure:</strong> As an affiliate, we may earn from qualifying purchases made through links on this site, at no extra cost to you. <a href="/privacy-policy.html" class="alert-link text-white-50">Learn More</a>. <!-- REPLACE Link -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gy-4">
+                <!-- Footer Column 1: About -->
+                <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">YourLogo</h6> <!-- REPLACE YourLogo -->
+                    <p>
+                        Helping you find the best [Your Niche] products through honest reviews and curated recommendations. <!-- REPLACE Text -->
+                    </p>
+                </div>
+
+                <!-- Footer Column 2: Links -->
+                <div class="col-md-6 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Quick Links</h6>
+                    <p><a href="#top-deals" class="text-reset">Deals</a></p>
+                    <p><a href="#top-categories" class="text-reset">Categories</a></p>
+                    <p><a href="#top-products" class="text-reset">Products</a></p>
+                    <p><a href="#blog-preview" class="text-reset">Blog</a></p>
+                </div>
+
+                <!-- Footer Column 3: Legal -->
+                 <div class="col-md-6 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Legal</h6>
+                    <p><a href="/privacy-policy.html" class="text-reset">Privacy Policy</a></p> <!-- REPLACE Link -->
+                    <p><a href="/terms-of-service.html" class="text-reset">Terms of Service</a></p> <!-- REPLACE Link -->
+                    <p><a href="/contact.html" class="text-reset">Contact Us</a></p> <!-- REPLACE Link -->
+                </div>
+
+                <!-- Footer Column 4: Social -->
+                 <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Follow Us</h6>
+                     <a href="#" class="text-reset me-3 fs-5"><i class="fab fa-facebook-f"></i></a> <!-- REPLACE Link -->
+                    <a href="#" class="text-reset me-3 fs-5"><i class="fab fa-twitter"></i></a> <!-- REPLACE Link -->
+                    <a href="#" class="text-reset me-3 fs-5"><i class="fab fa-instagram"></i></a> <!-- REPLACE Link -->
+                    <a href="#" class="text-reset me-3 fs-5"><i class="fab fa-pinterest"></i></a> <!-- REPLACE Link -->
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center p-3 border-top border-secondary mt-4">
+                © <span id="current-year"></span> Copyright:
+                <a class="text-reset fw-bold" href="index.html">YourWebsiteName.com</a> <!-- REPLACE Name & Link -->
+            </div>
+         </div>
+    </footer>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
