@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scrollbar often caused by AOS */
+  overflow-x: hidden; /* Prevent horizontal scrollbar globally */
 }
 
 main.main-content {
@@ -356,7 +356,7 @@ a:hover {
 
 
 /*--------------------------------------------------------------
-# Mobile Horizontal Scrolling for Deal Sections (NEW)
+# Mobile Horizontal Scrolling for Deal Sections
 --------------------------------------------------------------*/
 @media (max-width: 767.98px) {
   .horizontal-scroll-mobile {
@@ -403,6 +403,14 @@ a:hover {
    .horizontal-scroll-mobile .card img {
       height: 150px; /* Adjust image height for mobile scroll */
    }
+
+  /* Apply overflow hidden specifically to the containers holding the horizontal scroll elements on mobile */
+  #amazon-deals > .container,
+  #flipkart-deals > .container,
+  #myntra-deals > .container,
+  #ajio-deals > .container {
+      overflow-x: hidden;
+  }
 }
 
 
@@ -438,7 +446,7 @@ a:hover {
     .deal-banner-carousel .lead { font-size: 1rem; }
     .deal-banner-carousel .sale-graphic { max-height: 150px; }
 
-    /* Footer Mobile Adjustments (Already handled above) */
+    /* Footer Mobile Adjustments */
     .main-footer .text-md-start { text-align: center !important; }
     .main-footer .mx-auto { margin-left: auto !important; margin-right: auto !important; }
 
@@ -451,66 +459,3 @@ a:hover {
    .deal-banner-carousel { margin-bottom: 30px; }
    .deal-banner-carousel .btn { padding: 0.5rem 1.2rem; font-size: 0.9rem;} /* Slightly smaller button */
 }
-/* Existing styles... */
-
-@media (max-width: 767.98px) {
-  /* ... other mobile styles ... */
-
-  .horizontal-scroll-mobile {
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    padding-bottom: 15px; /* Space for scrollbar */
-    margin-left: -1rem; /* Counteract container padding */
-    margin-right: -1rem; /* Counteract container padding */
-    padding-left: 1rem; /* Restore padding inside */
-    padding-right: 1rem; /* Restore padding inside */
-  }
-  .horizontal-scroll-mobile::-webkit-scrollbar {
-     height: 5px; /* Adjust scrollbar thickness */
-  }
-  .horizontal-scroll-mobile::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 5px;
-  }
-  .horizontal-scroll-mobile .row {
-    flex-wrap: nowrap !important; /* Override Bootstrap wrap */
-    margin-left: 0; /* Reset negative row margin */
-    margin-right: 0; /* Reset negative row margin */
-  }
-  .horizontal-scroll-mobile .col {
-    display: inline-block;
-    width: 75%; /* Adjust width: how much of screen one card takes */
-    max-width: 280px; /* Max width for a single card */
-    vertical-align: top; /* Align cards to the top */
-    white-space: normal; /* Allow text inside card to wrap */
-    float: none !important; /* Override Bootstrap floats */
-    margin-right: 1rem; /* Spacing between cards */
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .horizontal-scroll-mobile .col:last-child {
-    margin-right: 0; /* No margin for the last card */
-  }
-  .horizontal-scroll-mobile .card {
-      height: auto;
-  }
-   .horizontal-scroll-mobile .card img {
-      height: 150px;
-   }
-
-  /* --- START: Added Rule to Fix Body Scroll --- */
-  /* Apply overflow hidden specifically to the containers holding the horizontal scroll elements on mobile */
-  #amazon-deals > .container,
-  #flipkart-deals > .container,
-  #myntra-deals > .container,
-  #ajio-deals > .container {
-      overflow-x: hidden;
-  }
-  /* --- END: Added Rule to Fix Body Scroll --- */
-
-  /* ... rest of the mobile styles ... */
-
-} /* End of @media (max-width: 767.98px) */
-
-/* ... other styles ... */
