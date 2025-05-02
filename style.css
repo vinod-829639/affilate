@@ -257,10 +257,15 @@ a:hover {
   overflow: hidden;
   height: 100%; /* Ensure cards in a row take same height */
 }
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+/* Prevent card hover effect within horizontal scroll on mobile
+   as it can interfere with scrolling */
+@media (min-width: 768px) {
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
 }
+
 .card img { object-fit: cover; width: 100%; /* Ensure image covers width */ height: 180px; /* Fixed height example */ }
 .card .card-body { display: flex; flex-direction: column; } /* Needed for flex-grow */
 .card .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--heading-color); }
@@ -356,79 +361,103 @@ a:hover {
 
 
 /*--------------------------------------------------------------
-# Mobile Horizontal Scrolling for Deal Sections
+# Mobile Horizontal Scrolling for Deal Sections (REVISED)
 --------------------------------------------------------------*/
+/* This media query ONLY targets screens smaller than medium (tablets/phones) */
 @media (max-width: 767.98px) {
   .horizontal-scroll-mobile {
-    overflow-x: auto;
-    white-space: nowrap;
+    overflow-x: auto; /* Enable horizontal scroll */
+    white-space: nowrap; /* Prevent items from wrapping */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     padding-bottom: 15px; /* Space for scrollbar */
-    margin-left: -1rem; /* Counteract container padding */
-    margin-right: -1rem; /* Counteract container padding */
-    padding-left: 1rem; /* Restore padding inside */
-    padding-right: 1rem; /* Restore padding inside */
+    /* REMOVED negative margins */
+    /* Add padding inside the scroll container if needed for first/last item */
+    /* padding-left: 0.5rem; */
+    /* padding-right: 0.5rem; */
   }
+
+  /* Hide scrollbar visually but keep functionality */
   .horizontal-scroll-mobile::-webkit-scrollbar {
-     height: 5px; /* Adjust scrollbar thickness */
+    height: 5px; /* width of vertical scrollbar / height of horizontal */
+    /* display: none; /* Use this instead if you want to hide completely */
   }
   .horizontal-scroll-mobile::-webkit-scrollbar-thumb {
     background: var(--border-color);
     border-radius: 5px;
+   }
+   /* For Firefox */
+  .horizontal-scroll-mobile {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: var(--border-color) transparent; /* thumb and track color */
   }
-  .horizontal-scroll-mobile .row {
-    flex-wrap: nowrap !important; /* Override Bootstrap wrap */
-    margin-left: 0; /* Reset negative row margin */
-    margin-right: 0; /* Reset negative row margin */
+
+
+  /* Target the ROW *inside* the horizontal scroll container */
+  .horizontal-scroll-mobile > .row {
+    /* Override Bootstrap's default row behavior for this specific case */
+    flex-wrap: nowrap !important; /* CRITICAL: Keep columns in one line */
+    margin-left: 0; /* Reset Bootstrap negative margins if present */
+    margin-right: 0;
   }
-  .horizontal-scroll-mobile .col {
-    /* Make columns inline-block for horizontal layout */
-    display: inline-block;
-    width: 75%; /* Adjust width: how much of screen one card takes */
-    max-width: 280px; /* Max width for a single card */
-    vertical-align: top; /* Align cards to the top */
-    white-space: normal; /* Allow text inside card to wrap */
+
+  /* Target the COLUMNS *inside* the specific row */
+  .horizontal-scroll-mobile > .row > .col {
+    /* Override Bootstrap column behavior ONLY within this context */
+    display: inline-block; /* Allow items to sit side-by-side */
+    width: 75%; /* Adjust as needed - how much width one card takes */
+    max-width: 280px; /* Optional: Limit max width of a card */
+    vertical-align: top; /* Align items neatly */
+    white-space: normal; /* Allow text *inside* the card to wrap */
     float: none !important; /* Override Bootstrap floats */
-    margin-right: 1rem; /* Spacing between cards */
-    /* Overriding Bootstrap column padding (g-4 = 1.5rem) */
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    /* Adjust spacing between cards */
+    padding-left: 0.5rem !important; /* Use padding for spacing */
+    padding-right: 0.5rem !important;
+    margin-right: 0 !important; /* Remove default Bootstrap col margin */
   }
-  .horizontal-scroll-mobile .col:last-child {
-    margin-right: 0; /* No margin for the last card */
-  }
-  .horizontal-scroll-mobile .card {
-      height: auto; /* Let height be determined by content on mobile scroll */
-  }
-   .horizontal-scroll-mobile .card img {
-      height: 150px; /* Adjust image height for mobile scroll */
+
+  /* Optional: Target first and last column for specific padding */
+   .horizontal-scroll-mobile > .row > .col:first-child {
+       padding-left: 0 !important; /* No extra padding on the far left */
+   }
+   .horizontal-scroll-mobile > .row > .col:last-child {
+       padding-right: 0 !important; /* No extra padding on the far right */
    }
 
-  /* Apply overflow hidden specifically to the containers holding the horizontal scroll elements on mobile */
-  #amazon-deals > .container,
-  #flipkart-deals > .container,
-  #myntra-deals > .container,
-  #ajio-deals > .container {
-      overflow-x: hidden;
+
+  /* Adjust card height and image height for mobile scroll view */
+  .horizontal-scroll-mobile .card {
+      height: auto; /* Let content dictate height */
+      margin-bottom: 0; /* Remove extra margin if card has it */
   }
-}
+   .horizontal-scroll-mobile .card img {
+      height: 150px; /* Adjust image height */
+   }
+
+   /* REMOVED overflow-x: hidden from specific containers */
+
+} /* End of @media (max-width: 767.98px) */
 
 
 /*--------------------------------------------------------------
-# Responsive Adjustments
+# Responsive Adjustments (General)
 --------------------------------------------------------------*/
-@media (max-width: 991.98px) { /* Below Large */
-    /* Styles for tablets if needed, currently handled by Bootstrap */
+/* These rules apply to specific breakpoints */
+
+@media (max-width: 991.98px) { /* Below Large (Tablets) */
+    /* Add tablet specific styles here if needed */
+    /* Desktop grid columns (row-cols-lg-*) won't apply, */
+    /* row-cols-md-* will take effect if present */
 }
 
-@media (max-width: 767.98px) { /* Below Medium */
+@media (max-width: 767.98px) { /* Below Medium (Tablets/Phones) */
+    /* --- General Mobile Styles --- */
     .section-padding { padding: 40px 0; }
     .section-title { font-size: 1.8rem; margin-bottom: 30px; }
     .brand-logo img { max-height: 45px; }
     body { padding-top: 68px; } /* Adjust if navbar height changes */
     .main-nav #search-form .form-control-sm { max-width: 150px; }
 
-    /* Carousel Mobile Adjustments */
+    /* --- Carousel Mobile Adjustments --- */
      .deal-banner-carousel .deal-slide-content {
         min-height: 280px;
         text-align: center;
@@ -446,16 +475,27 @@ a:hover {
     .deal-banner-carousel .lead { font-size: 1rem; }
     .deal-banner-carousel .sale-graphic { max-height: 150px; }
 
-    /* Footer Mobile Adjustments */
+    /* --- Footer Mobile Adjustments --- */
     .main-footer .text-md-start { text-align: center !important; }
     .main-footer .mx-auto { margin-left: auto !important; margin-right: auto !important; }
 
-}
+    /* Other mobile adjustments if needed */
 
-@media (max-width: 576px) { /* Below Small */
+} /* End of general @media (max-width: 767.98px) */
+
+@media (max-width: 576px) { /* Below Small (Phones) */
+   /* --- Product Card Button Stacking --- */
    .card-product .d-flex.justify-content-between { flex-direction: column; align-items: stretch !important; gap: 0.5rem; }
    .card-product .btn { width: 100%; }
+
+   /* --- Further Carousel Adjustments --- */
    .deal-banner-carousel h2 { font-size: 1.6rem; } /* Even smaller heading */
    .deal-banner-carousel { margin-bottom: 30px; }
    .deal-banner-carousel .btn { padding: 0.5rem 1.2rem; font-size: 0.9rem;} /* Slightly smaller button */
+
+   /* --- Adjust Mobile Scroll Card Width --- */
+   .horizontal-scroll-mobile > .row > .col {
+        width: 85%; /* Make cards slightly wider on very small screens */
+        max-width: 300px;
+    }
 }
